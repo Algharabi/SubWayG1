@@ -36,21 +36,38 @@ public class PlayerController : MonoBehaviour
     void Update()
 
         {
-            if (Input.GetKey(KeyCode.UpArrow))
-                transform.Translate(1, 0, 0);
+           
         }
+    public void Jump()
+    {
+        MyPlayer.transform.Translate(1, 0, 0);
+    }
+    public void Crawl()
+    {
+        MyPlayer.transform.Translate(1, 0, 0);
+    }
+    public void MoveRight()
+    {
+        MyPlayer.transform.Translate(1, 0, 0);
+    }
+    public void MoveLeft()
+    {
+        MyPlayer.transform.Translate(1, 0, 0);
+    }
 
-        //private void OnCollisionEnter(Collision collision)
-        //{
-        //    //hit object and died
-        //    //playercontroller.instance.player = null
-        //    //destory(gameobject)
-        //}
 
-        //private void OnTriggerEnter(Collider other)
-        //{
 
-        //}
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    //hit object and died
+    //    //playercontroller.instance.player = null
+    //    //destory(gameobject)
+    //}
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+
+    //}
 
 
 

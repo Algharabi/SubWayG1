@@ -11,11 +11,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //if (ID == 0)
-        //if (PlayerController.Instance.MyPlayer == null)
+        if (PlayerController.Instance.MyPlayer == null)
         PlayerController.Instance.MyPlayer = this;
-        //else if (ID == 1)
-        //    PlayerController.Instance.Player2 = this;
     }
 
     // Update is called once per frame
