@@ -29,13 +29,13 @@ public class InputController : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
             PlayerController.Instance.Jump();
-        else if  (Input.GetKey(KeyCode.DownArrow))
+        else if  (Input.GetKeyDown(KeyCode.DownArrow))
                 PlayerController.Instance.Crawl();
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
             PlayerController.Instance.MoveRight();
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
             PlayerController.Instance.MoveLeft();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +9,8 @@ public class PlayerController : MonoBehaviour
     public Player MyPlayer { get; set; }
 
     private Rigidbody rg;
-    public float speed = 10.0F;
-    public float jumpspeed = 10.0F;
+    public float HorVil = 0F;
+    public float jumpspeed = 0F;
 
     
 
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rg = GetComponent<Rigidbody>();
+        rg.velocity = new Vector3((HorVil * Time.deltaTime), 0, (8 * Time.deltaTime));
+
     }
 
 
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
         {
            
+
         }
     public void Jump()
     {
@@ -46,50 +50,53 @@ public class PlayerController : MonoBehaviour
     {
         MyPlayer.transform.Translate(1, 0, 0);
     }
-    public void MoveRight()
+    public void MoveRight() => HorVil = 5;
+
+    public void MoveLeft() => HorVil = -5;
+
+    IEnumerator returnStraight()
     {
-        MyPlayer.transform.Translate(1, 0, 0);
+        {
+            yield return new WaitForSeconds(0.3f);
+            HorVil = 0;
+        }
     }
-    public void MoveLeft()
-    {
-        MyPlayer.transform.Translate(1, 0, 0);
+
+
+
+        //private void OnCollisionEnter(Collision collision)
+        //{
+        //    //hit object and died
+        //    //playercontroller.instance.player = null
+        //    //destory(gameobject)
+        //}
+
+        //private void OnTriggerEnter(Collider other)
+        //{
+
+        //}
+
+
+
+
+
+        //float translation = Input.GetAxis("Vertical") * speed;
+        //    float straffe = Input.GetAxis("Horizontal") * speed;
+        //    translation *= Time.deltaTime;
+        //    straffe *= Time.deltaTime;
+
+        //    transform.Translate(straffe, 0, translation);
+
+        //    if (Input.GetKey(KeyCode.Space))
+        //    {
+        //        Vector3 atas = new Vector3(0, 100, 0);
+        //        rg.AddForce(atas * speed, ForceMode.Impulse);
+        //    }
+
+        //    if (Input.GetKeyDown("escape"))
+        //        Cursor.lockState = CursorLockMode.None;
+
+
+
+
     }
-
-
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    //hit object and died
-    //    //playercontroller.instance.player = null
-    //    //destory(gameobject)
-    //}
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-
-    //}
-
-
-
-
-
-    //float translation = Input.GetAxis("Vertical") * speed;
-    //    float straffe = Input.GetAxis("Horizontal") * speed;
-    //    translation *= Time.deltaTime;
-    //    straffe *= Time.deltaTime;
-
-    //    transform.Translate(straffe, 0, translation);
-
-    //    if (Input.GetKey(KeyCode.Space))
-    //    {
-    //        Vector3 atas = new Vector3(0, 100, 0);
-    //        rg.AddForce(atas * speed, ForceMode.Impulse);
-    //    }
-
-    //    if (Input.GetKeyDown("escape"))
-    //        Cursor.lockState = CursorLockMode.None;
-
-
-
-
-}
