@@ -23,6 +23,7 @@ public class cupeScript : MonoBehaviour
                     cupe.transform.rotation);
             timer = 1;
             
+            
         }
     }
 }
