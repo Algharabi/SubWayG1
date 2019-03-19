@@ -6,12 +6,24 @@ using UnityEngine.UI;
 
 public class MainMenueScript : MonoBehaviour
 {
-  public  Button play;
-   public Dropdown Settings;
+    public Button play;
+    public Dropdown Settings;
+    AudioSource audioSource;
+    public AudioClip walk;
+    public InputField Name;
+    public Text requiredName;
+
     // Start is called before the first frame update
     void Start()
     {
-        SettingList();
+      
+        audioSource = GetComponent<AudioSource>();
+        List<string> showList = new List<string>() { "Sound Setting", "Sound Off", "Sound On" };
+        Settings.AddOptions(showList);
+
+
+        PlayerPrefs.SetString("savedName",Name.ToString());
+        PlayerPrefs.GetString("savedName",Name.ToString());
 
 
     }
@@ -19,17 +31,36 @@ public class MainMenueScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     public void OnClickButton()
     {
-        SceneManager.LoadScene("Playing");
+        if (Name.text == "")
+        {
+            requiredName.text = "Plase Enter Your Name";
+        }
+        else
+        {
+            SceneManager.LoadScene("Playing");
+        }
+
+
     }
 
-    void SettingList()
+    public void SettingList()
     {
-        List<string> showList = new List<string>() { "Sound Off", "Sound On" };
-        Settings.AddOptions(showList);
+
+        if (Settings.value == 1)
+        {
+            audioSource.clip = walk;
+            audioSource.Stop();
+        }
+        else if (Settings.value == 2)
+        {
+            audioSource.clip = walk;
+            audioSource.Play();
+
+        }
     }
 }
