@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,13 +11,13 @@ public class Player : MonoBehaviour
     void Start()
     {
         if (PlayerController.Instance.MyPlayer == null)
-        PlayerController.Instance.MyPlayer = this;
+            PlayerController.Instance.MyPlayer = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)

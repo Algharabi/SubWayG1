@@ -3,64 +3,77 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
     public Player MyPlayer { get; set; }
+    private float JumpSpeed = 15;
 
     private Rigidbody rg;
     public float HorVil = 0F;
-    public float jumpspeed = 0F;
-
+    Animator anim;
     
+    //public Player Player2 { get; set; }
 
-       
-        //public Player Player2 { get; set; }
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this);
 
-        void Awake()
-        {
-            if (Instance == null)
-                Instance = this;
-            else
-                Destroy(this);
-
-            DontDestroyOnLoad(gameObject);
-        }
+        DontDestroyOnLoad(gameObject);
+    }
 
 
     void Start()
     {
-        rg = GetComponent<Rigidbody>();
-        rg.velocity = new Vector3((HorVil * Time.deltaTime), 0, (8 * Time.deltaTime));
+        rg = MyPlayer.GetComponent<Rigidbody>();
+        anim = MyPlayer.GetComponent<Animator>();
+        rg.velocity = new Vector3((HorVil * Time.deltaTime), 0, (4 * Time.deltaTime));
 
     }
 
 
     void Update()
 
-        {
-           
+    {
 
-        }
+
+    }
     public void Jump()
     {
-        MyPlayer.transform.Translate(1, 0, 0);
+
+       rg.AddForce(Vector3.up * JumpSpeed * Time.deltaTime);
+       anim.SetTrigger("Jump");
     }
     public void Crawl()
     {
-        MyPlayer.transform.Translate(1, 0, 0);
+        //MyPlayer.transform.Translate(1, 0, 0);
+        anim.SetTrigger("Duck");
     }
-    public void MoveRight() => HorVil = 5;
-
-    public void MoveLeft() => HorVil = -5;
+    public void MoveRight()
+    {
+        HorVil = 3;
+        StartCoroutine(returnStraight());
+        anim.SetTrigger("MoveRight");
+    }
+    public void MoveLeft()
+    {
+        HorVil = -3;
+        StartCoroutine(returnStraight());
+        anim.SetTrigger("MoveLeft");
+    }
 
     IEnumerator returnStraight()
     {
-        {
-            yield return new WaitForSeconds(0.3f);
-            HorVil = 0;
-        }
+        yield return new WaitForSeconds(0.3f);
+        HorVil = 0;
     }
+}
+    
 
 
 
@@ -95,8 +108,3 @@ public class PlayerController : MonoBehaviour
 
         //    if (Input.GetKeyDown("escape"))
         //        Cursor.lockState = CursorLockMode.None;
-
-
-
-
-    }
