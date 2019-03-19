@@ -15,7 +15,7 @@ public class DestroyCupe : MonoBehaviour
     {
        // if(gameObject.transform.position.z<)
 
-        Invoke("DestroyBullet", 20);
+        Invoke("DestroyBullet", 40);
     }
 
     void DestroyBullet()

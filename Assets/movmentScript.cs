@@ -17,7 +17,7 @@ public class movmentScript : MonoBehaviour
     void Update()
     {
         //plane.position = new Vector3(plane.position.x, plane.position.y, plane.position.z - 0.1f);
-        myRB.position = new Vector3(myRB.position.x, myRB.position.y, myRB.position.z - 0.1f);
+        myRB.position = new Vector3(myRB.position.x, myRB.position.y, myRB.position.z - 0.5f);
         if(Input.GetKey(KeyCode.LeftArrow))
         {
             myRB.position = new Vector3(myRB.position.x+0.1f, myRB.position.y, myRB.position.z);
