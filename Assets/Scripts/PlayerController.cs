@@ -56,13 +56,13 @@ public class PlayerController : MonoBehaviour
     }
     public void MoveRight()
     {
-        HorVil = 3;
+        HorVil = (3 * Time.deltaTime);
         StartCoroutine(returnStraight());
         anim.SetTrigger("MoveRight");
     }
     public void MoveLeft()
     {
-        HorVil = -3;
+        HorVil = (-3 * Time.deltaTime);
         StartCoroutine(returnStraight());
         anim.SetTrigger("MoveLeft");
     }
@@ -72,39 +72,19 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         HorVil = 0;
     }
+    public void Die()
+    {
+        anim.SetTrigger("Die");
+    }
+    public void Respawn()
+    {
+        anim.SetTrigger("ReSpawn");
+    }
+    public void RePlay()
+    {
+        anim.SetTrigger("RePlay");
+    }
+
 }
     
 
-
-
-        //private void OnCollisionEnter(Collision collision)
-        //{
-        //    //hit object and died
-        //    //playercontroller.instance.player = null
-        //    //destory(gameobject)
-        //}
-
-        //private void OnTriggerEnter(Collider other)
-        //{
-
-        //}
-
-
-
-
-
-        //float translation = Input.GetAxis("Vertical") * speed;
-        //    float straffe = Input.GetAxis("Horizontal") * speed;
-        //    translation *= Time.deltaTime;
-        //    straffe *= Time.deltaTime;
-
-        //    transform.Translate(straffe, 0, translation);
-
-        //    if (Input.GetKey(KeyCode.Space))
-        //    {
-        //        Vector3 atas = new Vector3(0, 100, 0);
-        //        rg.AddForce(atas * speed, ForceMode.Impulse);
-        //    }
-
-        //    if (Input.GetKeyDown("escape"))
-        //        Cursor.lockState = CursorLockMode.None;
