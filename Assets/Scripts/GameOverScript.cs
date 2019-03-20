@@ -32,6 +32,15 @@ public class GameOverScript : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void OnClickButtonMain()
+    {
+
+        SceneManager.LoadScene("PlayerScene");
+        Time.timeScale = 1;
+    }
+
+
+
     public void Quitbtn()
     {
         Application.Quit();

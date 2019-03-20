@@ -10,6 +10,14 @@ public class GroundEffect : MonoBehaviour
     float Timercreate = 2f;
     public GameObject[] blocks;
     int random;
+    //float groundTimer = 3f;
+
+    //to increase the speed after limit time 
+
+   private float timeLimit = 10f;
+    //float moveSpeed = 15f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +28,19 @@ public class GroundEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        move += Time.deltaTime *-1;
+        move += Time.deltaTime * -3;
         gr.material.SetTextureOffset("_MainTex", new Vector2(0, move));
 
+        //to increase the speed after limit time 
+
+        //for (int i = 0; i <= timeLimit; i++)
+        //{
+
+
+        //    groundTimer++;
+        //        //  timeLimit += 5f;
+            
+        //}
         ////////////////////////////////////////////////////
         //now work for creating objects
 
@@ -73,8 +91,8 @@ public class GroundEffect : MonoBehaviour
                 f1 = 9;
             }
 
-            //////////////////////////////////////////////////////////////
-            ///
+            //////////////////////////////////
+            
 
             if (f2 == 1)
             {
@@ -89,7 +107,7 @@ public class GroundEffect : MonoBehaviour
                 f2 = 9;
             }
             ////////////////////////////////////////
-            ///
+            
             if (f3 == 1)
             {
                 f3 = -9;
