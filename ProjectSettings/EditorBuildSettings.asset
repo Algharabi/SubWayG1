@@ -9,9 +9,17 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+
     path: Assets/Scenes/StartPlay.unity
     guid: ae962e3eaab9b014f939cfc8b782cd20
   - enabled: 1
     path: Assets/Scenes/PlayerScene.unity
     guid: ece9f6639fa26c542b5a10f0795a9827
+
+    path: Assets/Scenes/MainMenue.unity
+    guid: 58a1dcf3c873c7b4d83f97b950eb21d6
+  - enabled: 1
+    path: Assets/Scenes/Playing.unity
+    guid: 8e0b598fac9225a499e5e89bfabca3eb
+origin/Ebtsam
   m_configObjects: {}
