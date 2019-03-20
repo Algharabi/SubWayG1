@@ -19,6 +19,7 @@ public class MainMenueScript : MonoBehaviour
       
         audioSource = GetComponent<AudioSource>();
         List<string> showList = new List<string>() { "Sound Setting", "Sound Off", "Sound On" };
+      //  showList.
         Settings.AddOptions(showList);
 
 
@@ -42,7 +43,7 @@ public class MainMenueScript : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Playing");
+            SceneManager.LoadScene("PlayerScene");
         }
 
 
