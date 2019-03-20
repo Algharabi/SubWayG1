@@ -29,11 +29,11 @@ public class WallScript : MonoBehaviour
             random = Random.Range(1, 4);
             random2 = Random.Range(1, 4);
             if (random2 == 1)
-                posi = 11;
+                posi = 10;
             else if (random2 == 2)
                 posi = 0;
             else if (random2 == 3)
-                posi = -11;
+                posi = -10;
             if (random == 1)
             {
                 cube1= Instantiate(stone1, new Vector3(posi, 1f, player.position.z + Random.Range(200, 150)),

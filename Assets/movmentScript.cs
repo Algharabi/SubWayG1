@@ -12,6 +12,8 @@ public class movmentScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+       
         score.text = "Score " + totalscore;
         score.color = Color.blue;
         myRB = GetComponent<Transform>();
@@ -38,9 +40,21 @@ public class movmentScript : MonoBehaviour
     {
         if(other.gameObject.tag=="coins")
         {
+          
             Destroy(other.gameObject);
             totalscore++;
             score.text = "Score " + totalscore;
         }
     }
 }
+
+//PlayerPrefs.SetInt("player", 10);
+  //if(totalscore>5)
+  //          {
+  //              print(PlayerPrefs.GetInt("player"));
+  //              if(PlayerPrefs.GetInt("player")>totalscore)
+  //              {
+  //                  print("2"+PlayerPrefs.GetInt("player"));
+  //                  score.text = PlayerPrefs.GetInt("player").ToString();
+  //              }
+  //          }
