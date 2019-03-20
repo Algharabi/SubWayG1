@@ -6,6 +6,7 @@ public class InputController : MonoBehaviour
 {
     public static InputController Instance;
     Player MyPlayer;
+    
 
     public Player myPlayer { get ; set ; }
 
@@ -32,13 +33,16 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
             PlayerController.Instance.Jump();
 
-        else if  (Input.GetKeyDown(KeyCode.DownArrow))
-                PlayerController.Instance.Crawl();
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+            PlayerController.Instance.Duck();
 
         else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
             PlayerController.Instance.MoveRight();
-
+        }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
             PlayerController.Instance.MoveLeft();
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject MyPlayer;
+    //public GameObject MyPlayer;
 
 
     // Start is called before the first frame update

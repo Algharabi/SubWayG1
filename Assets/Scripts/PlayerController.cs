@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
     public Player MyPlayer { get; set; }
-    private float JumpSpeed = 15;
-
+    private float JumpHT = 0.5f;
+    public int laneNum = 2;
     private Rigidbody rg;
     public float HorVil = 0F;
     Animator anim;
@@ -45,26 +45,34 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump()
     {
-
-       rg.AddForce(Vector3.up * JumpSpeed * Time.deltaTime);
-       anim.SetTrigger("Jump");
+        //rg.AddForce(Vector3.up * JumpSpeed * Time.deltaTime);
+        rg.velocity = new Vector3(0, (10 * (JumpHT)) , (4 * Time.deltaTime));
+        anim.SetTrigger("Jump");
     }
-    public void Crawl()
+    public void Duck()
     {
         //MyPlayer.transform.Translate(1, 0, 0);
         anim.SetTrigger("Duck");
     }
     public void MoveRight()
     {
-        HorVil = (3 * Time.deltaTime);
-        StartCoroutine(returnStraight());
-        anim.SetTrigger("MoveRight");
+        if (laneNum < 3)
+        {
+            HorVil = (3 * Time.deltaTime);
+            StartCoroutine(returnStraight());
+            anim.SetTrigger("MoveRight");
+            laneNum += 1;
+        }
     }
     public void MoveLeft()
     {
-        HorVil = (-3 * Time.deltaTime);
-        StartCoroutine(returnStraight());
-        anim.SetTrigger("MoveLeft");
+        if (laneNum > 1)
+        {
+            HorVil = (-3 * Time.deltaTime);
+            StartCoroutine(returnStraight());
+            anim.SetTrigger("MoveLeft");
+            laneNum -= 1;
+        }
     }
 
     IEnumerator returnStraight()
