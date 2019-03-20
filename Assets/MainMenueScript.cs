@@ -11,7 +11,7 @@ public class MainMenueScript : MonoBehaviour
     AudioSource audioSource;
     public AudioClip walk;
     public InputField Name;
-    public Text requiredName;
+    public Text message;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class MainMenueScript : MonoBehaviour
     {
         if (Name.text == "")
         {
-            requiredName.text = "Plase Enter Your Name";
+            message.text = "Plase Enter Your Name";
         }
         else
         {
