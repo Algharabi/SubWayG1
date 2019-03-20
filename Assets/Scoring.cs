@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Scoring : MonoBehaviour
 {
-    public float speed = 3;
+    public float speed = 0;
     public float MaxSpeed = 60;
     public GameObject player;
     public float increaseamount = 3;
     public float timer = 0;
-    public float acceleration = 30;
+    public float acceleration = 1;
     public float CoinsCounter = 0;
     public float myScore = 0;
     public Text ScoreText;
@@ -27,14 +27,22 @@ public class Scoring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
-        if (speed < MaxSpeed)
-        {
-            speed = Mathf.SmoothStep(speed, MaxSpeed, timer / increaseamount);
-            timer += Time.deltaTime;
-            speed++;
 
-        }
+        transform.Translate(Vector3.forward * speed);
+
+        speed += acceleration;
+
+        if (speed > MaxSpeed)
+            speed = MaxSpeed;
+        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        //transform.position += transform.forward * speed * Time.deltaTime;
+        //if (speed < MaxSpeed)
+        //{
+        //   speed = Mathf.SmoothStep(speed, MaxSpeed, timer / increaseamount);
+        //    timer += Time.deltaTime;
+        //    speed++;
+
+        //}
 
         timer += Time.deltaTime;
 
