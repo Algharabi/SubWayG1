@@ -1,9 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject Player;
+
+    public static Action PlayerDead;
+
     // Start is called before the first frame update
     void Start()
     {
