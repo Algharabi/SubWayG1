@@ -7,10 +7,16 @@ public class Player : MonoBehaviour
 {
     //public GameObject MyPlayer;
 
+    private void Awake()
+    {
+        if (PlayerController.Instance.MyPlayer == null)
+            PlayerController.Instance.MyPlayer = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+
         if (PlayerController.Instance.MyPlayer == null)
             PlayerController.Instance.MyPlayer = this;
     }

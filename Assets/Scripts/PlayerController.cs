@@ -9,12 +9,12 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
     public Player MyPlayer { get; set; }
-    private float JumpHT = 0.5f;
+    public float JumpHT = 10f;
     public int laneNum = 2;
     private Rigidbody rg;
-    public float HorVil = 0F;
+    //public float HorVil = 0F;
     Animator anim;
-    
+
     //public Player Player2 { get; set; }
 
     void Awake()
@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour
     {
         rg = MyPlayer.GetComponent<Rigidbody>();
         anim = MyPlayer.GetComponent<Animator>();
-        rg.velocity = new Vector3((HorVil * Time.deltaTime), 0, (4 * Time.deltaTime));
-
+        //rg.velocity = new Vector3((HorVil * Time.deltaTime), 0, (4 * Time.deltaTime));
+        //rg.velocity = new Vector3((HorVil * Time.deltaTime), 0, 0);
     }
 
 
@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump()
     {
-        //rg.AddForce(Vector3.up * JumpSpeed * Time.deltaTime);
-        rg.velocity = new Vector3(0, (10 * (JumpHT)) , (4 * Time.deltaTime));
+        rg.AddForce(Vector3.up * JumpHT, ForceMode.Force);
+        //rg.velocity = new Vector3(0, (30 * (JumpHT)), (4 * Time.deltaTime));
         anim.SetTrigger("Jump");
     }
     public void Duck()
@@ -58,8 +58,10 @@ public class PlayerController : MonoBehaviour
     {
         if (laneNum < 3)
         {
-            HorVil = (3 * Time.deltaTime);
-            StartCoroutine(returnStraight());
+            MyPlayer.transform.position = new Vector3((MyPlayer.transform.position.x + 9f),
+                MyPlayer.transform.position.y, MyPlayer.transform.position.z);
+            //HorVil = (3 * Time.deltaTime);
+            //StartCoroutine(returnStraight());
             anim.SetTrigger("MoveRight");
             laneNum += 1;
         }
@@ -68,18 +70,20 @@ public class PlayerController : MonoBehaviour
     {
         if (laneNum > 1)
         {
-            HorVil = (-3 * Time.deltaTime);
-            StartCoroutine(returnStraight());
+            MyPlayer.transform.position = new Vector3((MyPlayer.transform.position.x - 9f),
+                MyPlayer.transform.position.y, MyPlayer.transform.position.z);
+            //HorVil = (-3 * Time.deltaTime);
+            //StartCoroutine(returnStraight());
             anim.SetTrigger("MoveLeft");
             laneNum -= 1;
         }
     }
 
-    IEnumerator returnStraight()
-    {
-        yield return new WaitForSeconds(0.3f);
-        HorVil = 0;
-    }
+    //IEnumerator returnStraight()
+    //{
+    //    yield return new WaitForSeconds(0.3f);
+    //    HorVil = 0;
+    //}
     public void Die()
     {
         anim.SetTrigger("Die");
@@ -94,5 +98,5 @@ public class PlayerController : MonoBehaviour
     }
 
 }
-    
+
 

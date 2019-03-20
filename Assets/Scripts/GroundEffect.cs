@@ -122,8 +122,8 @@ public class GroundEffect : MonoBehaviour
             }
 
            // Instantiate(blocks[0], new Vector3(f1, 3, 40),Quaternion.identity);
-            Instantiate(obj1, new Vector3(f2, 3, 40),Quaternion.identity);
-            Instantiate(obj2, new Vector3(f3, 3, 40),Quaternion.identity);
+            //Instantiate(obj1, new Vector3(f2, 3, 40),Quaternion.identity);
+            //Instantiate(obj2, new Vector3(f3, 3, 40),Quaternion.identity);
             
         }
 
