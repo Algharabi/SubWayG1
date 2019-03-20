@@ -36,7 +36,7 @@ public class WallScript : MonoBehaviour
                 posi = -11;
             if (random == 1)
             {
-                cube1= Instantiate(stone1, new Vector3(posi, 2f, player.position.z + Random.Range(200, 150)),
+                cube1= Instantiate(stone1, new Vector3(posi, 1f, player.position.z + Random.Range(200, 150)),
                         buf.transform.rotation);
                 Instantiate(coins, new Vector3(posi, 5.5f,  cube1.transform.position.z-2),
                         coins.transform.rotation);
@@ -48,7 +48,7 @@ public class WallScript : MonoBehaviour
             }
             if (random == 2)
             {
-                cube1 = Instantiate(stone2, new Vector3(posi, 2f, player.position.z + Random.Range(200, 150)),
+                cube1 = Instantiate(stone2, new Vector3(posi, 1f, player.position.z + Random.Range(200, 150)),
                         buf.transform.rotation);
                 Instantiate(coins, new Vector3(posi, 5.5f, cube1.transform.position.z - 2),
                          coins.transform.rotation);

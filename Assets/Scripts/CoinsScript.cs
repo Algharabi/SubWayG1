@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CoinsScript : MonoBehaviour
 {
+   
     
     Transform coin;
     // Start is called before the first frame update
     void Start()
     {
+        
         coin = GetComponent<Transform>();
     }
 
@@ -22,4 +25,12 @@ public class CoinsScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.tag=="Player")
+    //    {
+    //        Destroy(gameObject);
+           
+    //    }
+    //}
 }
