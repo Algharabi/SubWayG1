@@ -23,12 +23,18 @@ public class GameOverScript : MonoBehaviour
         //if (isGameStarted)
         //{
         //    gameCanvas.SetTrigger("Hide");
-        //}
+        //
     }
     public void OnClickButton()
     {
        
         SceneManager.LoadScene("PlayerScene");
+        Time.timeScale = 1;
+    }
+
+    public void Quitbtn()
+    {
+        Application.Quit();
     }
 
 

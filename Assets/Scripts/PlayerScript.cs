@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
 
         if (IsplayerMove)
         {
-            transform.Translate(Vector3.forward* Time.deltaTime * 10);
+            
 
 
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -88,6 +88,7 @@ public class PlayerScript : MonoBehaviour
         {
             IsplayerMove = false;
             PuseMenu.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
