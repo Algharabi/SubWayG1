@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
     public Player MyPlayer { get; set; }
-    public float JumpHT = 10f;
+    public float JumpHT = 20f;
+    //public bool isGrounded;
     public int laneNum = 2;
     private Rigidbody rg;
     //public float HorVil = 0F;
@@ -43,11 +44,19 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    //void OnCollisionStay()
+    //{
+    //    print("ggg");
+    //    isGrounded = true;
+    //}
     public void Jump()
     {
-        rg.AddForce(Vector3.up * JumpHT, ForceMode.Force);
-        //rg.velocity = new Vector3(0, (30 * (JumpHT)), (4 * Time.deltaTime));
-        anim.SetTrigger("Jump");
+        if (MyPlayer.transform.position.y < 1)
+        {
+            rg.AddForce(new Vector3(0, 2 * JumpHT, 0), ForceMode.Impulse);
+            //rg.velocity = new Vector3(0, (30 * (JumpHT)), (4 * Time.deltaTime));
+            anim.SetTrigger("Jump");
+        }
     }
     public void Duck()
     {
