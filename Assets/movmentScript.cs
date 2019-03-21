@@ -48,13 +48,15 @@ public class movmentScript : MonoBehaviour
     }
 }
 
-//PlayerPrefs.SetInt("player", 10);
-  //if(totalscore>5)
-  //          {
-  //              print(PlayerPrefs.GetInt("player"));
-  //              if(PlayerPrefs.GetInt("player")>totalscore)
-  //              {
-  //                  print("2"+PlayerPrefs.GetInt("player"));
-  //                  score.text = PlayerPrefs.GetInt("player").ToString();
-  //              }
-  //          }
+
+//if(totalscore>5)
+//          {
+//              print(PlayerPrefs.GetInt("player"));
+//              if(PlayerPrefs.GetInt("player")<totalscore)
+//              {
+//PlayerPrefs.SetInt("player", totalscore);
+//                  print("2"+PlayerPrefs.GetInt("player"));
+//                  score.text = PlayerPrefs.GetInt("player").ToString();
+//              }
+
+//          }
