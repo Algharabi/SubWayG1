@@ -35,7 +35,7 @@ public class GameOverScript : MonoBehaviour
     public void OnClickButtonMain()
     {
 
-        SceneManager.LoadScene("PlayerScene");
+        SceneManager.LoadScene("MainMenue");
         Time.timeScale = 1;
     }
 

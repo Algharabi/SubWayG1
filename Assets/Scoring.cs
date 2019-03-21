@@ -6,7 +6,7 @@ public class Scoring : MonoBehaviour
 {
     public float speed = 0;
     public float MaxSpeed = 60;
-    public GameObject player;
+   
     public float increaseamount = 3;
     public float timer = 0;
     public float acceleration = 1;
@@ -17,7 +17,8 @@ public class Scoring : MonoBehaviour
     public int newHighScore;
     public Text mycoins;
     public Image coinImage;
-    
+   // public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,8 +60,9 @@ public class Scoring : MonoBehaviour
     {
         if(other.gameObject.tag == "coin")
         {
-            CoinsCounter++;
+           
             Destroy(other.gameObject);
+            CoinsCounter++;
             mycoins.text = "" + CoinsCounter;
            // print(CoinsCounter);
 

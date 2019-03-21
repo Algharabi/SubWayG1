@@ -12,7 +12,7 @@ public class MainMenueScript : MonoBehaviour
     public AudioClip walk;
     public InputField Name;
     public Text message;
-
+    public static MainMenueScript Instance;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +21,7 @@ public class MainMenueScript : MonoBehaviour
         List<string> showList = new List<string>() { "Sound Setting", "Sound Off", "Sound On" };
       //  showList.
         Settings.AddOptions(showList);
-
-
-        PlayerPrefs.SetString("savedName",Name.ToString());
-        PlayerPrefs.GetString("savedName",Name.ToString());
-
-
-    }
+ }
 
     // Update is called once per frame
     void Update()
@@ -37,31 +31,35 @@ public class MainMenueScript : MonoBehaviour
 
     public void OnClickButton()
     {
+        
         if (Name.text == "")
         {
             message.text = "Plase Enter Your Name";
         }
         else
         {
+            PlayerPrefs.SetString("savedName", Name.text.ToString());
             SceneManager.LoadScene("PlayerScene");
         }
 
 
     }
 
-    public void SettingList()
+    public int SettingList()
     {
-
+        int a = 0;
         if (Settings.value == 1)
         {
             audioSource.clip = walk;
             audioSource.Stop();
+            return a = 1;
         }
         else if (Settings.value == 2)
         {
             audioSource.clip = walk;
             audioSource.Play();
-
+            return a = 2;
         }
+        return a;
     }
 }

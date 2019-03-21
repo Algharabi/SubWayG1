@@ -25,20 +25,20 @@ public class CoinsScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        { 
-            Destroy(gameObject);
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "Player")
+    //    { 
+    //        Destroy(gameObject);
 
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject. tag == "Player")
-        {
-            Destroy(gameObject);
+    //    }
+    //}
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject. tag == "Player")
+    //    {
+    //        Destroy(gameObject);
 
-        }
-    }
+    //    }
+    //}
 }

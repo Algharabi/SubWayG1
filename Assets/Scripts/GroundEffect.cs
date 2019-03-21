@@ -187,11 +187,11 @@ public class GroundEffect : MonoBehaviour
             {
                 cube1 = Instantiate(buf, new Vector3(posi+1, 5f, player.position.z + Random.Range(100, 150)),
                         buf.transform.rotation);
-                Instantiate(coins, new Vector3(posi, 3f, cube1.transform.position.z + 1),
+                Instantiate(coins, new Vector3(posi, 2f, cube1.transform.position.z + 1),
                         coins.transform.rotation);
-                Instantiate(coins, new Vector3(posi, 3f, cube1.transform.position.z + 5),
+                Instantiate(coins, new Vector3(posi, 2f, cube1.transform.position.z + 5),
                         coins.transform.rotation);
-                Instantiate(coins, new Vector3(posi, 3f, cube1.transform.position.z + 9),
+                Instantiate(coins, new Vector3(posi, 2f, cube1.transform.position.z + 9),
                         coins.transform.rotation);
             }
             timer = 1;
