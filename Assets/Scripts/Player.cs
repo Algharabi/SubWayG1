@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    bool IsplayerMove = true;
+    public GameObject PuseMenu;
+    public string PlayerState;
     //public GameObject MyPlayer;
 
     private void Awake()
@@ -17,8 +20,6 @@ public class Player : MonoBehaviour
     void Start()
     {
 
-        if (PlayerController.Instance.MyPlayer == null)
-            PlayerController.Instance.MyPlayer = this;
     }
 
     // Update is called once per frame
@@ -27,12 +28,14 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision coll)
     {
-        //hit object and died
-        //playercontroller.instance.player = null
-        //destory(gameobject)
-        
+        if (coll.gameObject.tag == "Block")
+        {
+            IsplayerMove = false;
+            PuseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
