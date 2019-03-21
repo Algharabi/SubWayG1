@@ -18,7 +18,7 @@ public class MainMenueScript : MonoBehaviour
     {
       
         audioSource = GetComponent<AudioSource>();
-        List<string> showList = new List<string>() { "Sound Setting", "Sound Off", "Sound On" };
+        List<string> showList = new List<string>() {  "Sound On" , "Sound Off" };
       //  showList.
         Settings.AddOptions(showList);
  }
@@ -45,21 +45,23 @@ public class MainMenueScript : MonoBehaviour
 
     }
 
-    public int SettingList()
+    public void SettingList()
     {
-        int a = 0;
-        if (Settings.value == 1)
+       
+        if (Settings.value == 0)
         {
+            print("yes");
+            audioSource.clip = walk;
+            audioSource.Play ();
+            PlayerPrefs.SetString("sound","yes");
+        }
+        else if (Settings.value == 1)
+        {
+            print("no");
             audioSource.clip = walk;
             audioSource.Stop();
-            return a = 1;
+            PlayerPrefs.SetString("sound", "no");
         }
-        else if (Settings.value == 2)
-        {
-            audioSource.clip = walk;
-            audioSource.Play();
-            return a = 2;
-        }
-        return a;
+        
     }
 }

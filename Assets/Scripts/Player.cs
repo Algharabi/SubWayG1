@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
     public Text scoreGameover;
     public Text currentscoreGameover;
     public Text Name;
-
+    AudioSource audioSource;
+    public AudioClip walk;
     private void Awake()
     {
         if (PlayerController.Instance.MyPlayer == null)
@@ -35,7 +36,16 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MainMenueScript.Instance.SettingList();
+        print(PlayerPrefs.GetString("sound"));
+        audioSource = GetComponent<AudioSource>();
+        if (PlayerPrefs.GetString("sound")=="yes")
+        {
+            audioSource.Play();
+        }
+        else if (PlayerPrefs.GetString("sound") == "no")
+        {
+            audioSource.Stop();
+        }
         ScoreText.text = "0";
         ScoreText.color = Color.blue;
         mycoins.text = "0";
