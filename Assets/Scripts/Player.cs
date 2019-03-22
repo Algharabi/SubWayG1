@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     {
         print(PlayerPrefs.GetString("sound"));
         audioSource = GetComponent<AudioSource>();
-        if (PlayerPrefs.GetString("sound")=="yes")
+        if (PlayerPrefs.GetString("sound") == "yes")
         {
             audioSource.Play();
         }
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
     {
         if (coll.gameObject.tag == "Block")
         {
-           Name.text="Name: "+ PlayerPrefs.GetString("savedName");
+            Name.text = "Name: " + PlayerPrefs.GetString("savedName");
             currentscoreGameover.text = "Your  Score  " + myScore.ToString();
             if (PlayerPrefs.GetInt("highscore") < myScore)
             {
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                scoreGameover.text = "Highest Score  "+PlayerPrefs.GetInt("highscore").ToString();
+                scoreGameover.text = "Highest Score  " + PlayerPrefs.GetInt("highscore").ToString();
             }
             IsplayerMove = false;
             PuseMenu.SetActive(true);
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="coins")
+        if (other.tag == "coins")
         {
             Destroy(other.gameObject);
             CoinsCounter++;
