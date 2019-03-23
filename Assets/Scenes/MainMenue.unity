@@ -1967,7 +1967,6 @@ GameObject:
   - component: {fileID: 1040109509}
   - component: {fileID: 1040109508}
   - component: {fileID: 1040109507}
-  - component: {fileID: 1040109511}
   m_Layer: 5
   m_Name: BuyBtn
   m_TagString: Untagged
@@ -2015,9 +2014,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1040109511}
-        m_MethodName: shopBtn
-        m_Mode: 1
+      - m_Target: {fileID: 1375325114}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2085,25 +2084,6 @@ RectTransform:
   m_AnchoredPosition: {x: 16, y: 45}
   m_SizeDelta: {x: 190, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1040109511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040109506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61145f3b04a92764898747fea3618d50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  play: {fileID: 0}
-  Settings: {fileID: 0}
-  walk: {fileID: 0}
-  Name: {fileID: 0}
-  message: {fileID: 0}
-  shopButton: {fileID: 1040109507}
-  shop: {fileID: 0}
 --- !u!1 &1076046285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,14 +2815,13 @@ GameObject:
   - component: {fileID: 1939327486}
   - component: {fileID: 1939327485}
   - component: {fileID: 1939327484}
-  - component: {fileID: 1939327483}
   m_Layer: 5
   m_Name: ShopBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1939327482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2863,25 +2842,6 @@ RectTransform:
   m_AnchoredPosition: {x: -427.40002, y: -262.2}
   m_SizeDelta: {x: 190, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1939327483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939327481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61145f3b04a92764898747fea3618d50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  play: {fileID: 0}
-  Settings: {fileID: 0}
-  walk: {fileID: 0}
-  Name: {fileID: 0}
-  message: {fileID: 0}
-  shopButton: {fileID: 1939327484}
-  shop: {fileID: 0}
 --- !u!114 &1939327484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2922,16 +2882,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1939327483}
-        m_MethodName: shopBtn
-        m_Mode: 1
+      - m_Target: {fileID: 1375325114}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null

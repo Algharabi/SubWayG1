@@ -40,7 +40,7 @@ public class GroundEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        move += Time.deltaTime * -3;
+        move += Time.deltaTime * -1;
         gr.material.SetTextureOffset("_MainTex", new Vector2(0, move));
 
         //to increase the speed after limit time 
