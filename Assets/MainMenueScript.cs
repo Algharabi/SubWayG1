@@ -13,6 +13,8 @@ public class MainMenueScript : MonoBehaviour
     public InputField Name;
     public Text message;
     public static MainMenueScript Instance;
+
+    public Button shopButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,5 +65,11 @@ public class MainMenueScript : MonoBehaviour
             PlayerPrefs.SetString("sound", "no");
         }
         
+    }
+
+    public void shopBtn()
+    {
+        SceneManager.LoadScene("PlayerScene");
+       // Time.timeScale = 1;
     }
 }
