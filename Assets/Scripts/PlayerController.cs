@@ -9,9 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
     public Player MyPlayer { get; set; }
-
     public float JumpHT = 20f;
-
     //public bool isGrounded;
     public int laneNum = 2;
     private Rigidbody rg;
@@ -27,7 +25,7 @@ public class PlayerController : MonoBehaviour
         else
             Destroy(this);
 
-       // DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
 

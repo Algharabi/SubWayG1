@@ -12,40 +12,37 @@ public class MainMenueScript : MonoBehaviour
     public AudioClip walk;
     public InputField Name;
     public Text message;
-    public static MainMenueScript Instance;
 
-    public Button shopButton;
-    public GameObject shop;
     // Start is called before the first frame update
     void Start()
     {
       
         audioSource = GetComponent<AudioSource>();
-        List<string> showList = new List<string>() {  "Sound On" , "Sound Off" };
-      //  showList.
+        List<string> showList = new List<string>() { "Sound Setting", "Sound Off", "Sound On" };
         Settings.AddOptions(showList);
- }
+
+
+        PlayerPrefs.SetString("savedName",Name.ToString());
+        PlayerPrefs.GetString("savedName",Name.ToString());
+
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            shop.SetActive(false);
-        }
+
     }
 
     public void OnClickButton()
     {
-        
         if (Name.text == "")
         {
             message.text = "Plase Enter Your Name";
         }
         else
         {
-            PlayerPrefs.SetString("savedName", Name.text.ToString());
-            SceneManager.LoadScene("PlayerScene");
+            SceneManager.LoadScene("Playing");
         }
 
 
@@ -53,38 +50,17 @@ public class MainMenueScript : MonoBehaviour
 
     public void SettingList()
     {
-       
-        if (Settings.value == 0)
+
+        if (Settings.value == 1)
         {
-            print("yes");
-            audioSource.clip = walk;
-            audioSource.Play ();
-            PlayerPrefs.SetString("sound","yes");
-        }
-        else if (Settings.value == 1)
-        {
-            print("no");
             audioSource.clip = walk;
             audioSource.Stop();
-            PlayerPrefs.SetString("sound", "no");
         }
-        
-    }
-
-    public void OnMouseDown()
-    {
-        if (Input.GetMouseButtonDown(0))
+        else if (Settings.value == 2)
         {
-            print("Pressed left click.");
-            shop.SetActive(true);
+            audioSource.clip = walk;
+            audioSource.Play();
 
         }
-    }
-
-
-    public void shopBtn()
-    {
-        SceneManager.LoadScene("PlayerScene");
-       // Time.timeScale = 1;
     }
 }
