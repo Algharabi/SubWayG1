@@ -15,6 +15,7 @@ public class MainMenueScript : MonoBehaviour
     public static MainMenueScript Instance;
 
     public Button shopButton;
+    public GameObject shop;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,10 @@ public class MainMenueScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetMouseButtonDown(1))
+        {
+            shop.SetActive(false);
+        }
     }
 
     public void OnClickButton()
@@ -66,6 +70,17 @@ public class MainMenueScript : MonoBehaviour
         }
         
     }
+
+    public void OnMouseDown()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            print("Pressed left click.");
+            shop.SetActive(true);
+
+        }
+    }
+
 
     public void shopBtn()
     {
