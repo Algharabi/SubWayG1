@@ -95,4 +95,22 @@ public class Player : MonoBehaviour
             mycoins.text = "" + CoinsCounter;
         }
     }
+
+    public void shopmenu()
+    {
+        Time.timeScale = 0;
+    }
+    public void shopcoins()
+    {
+        if (CoinsCounter>=100)
+        {
+            CoinsCounter -= 100;
+            myScore += 100;
+            ScoreText.text = ("" + myScore);
+            mycoins.text = "" + CoinsCounter;
+        }
+        Time.timeScale = 1;
+    }
+
+
 }
